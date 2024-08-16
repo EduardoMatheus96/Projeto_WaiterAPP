@@ -128,3 +128,6 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Optional 
+Comandos_ultilizados_durante_a_live.txt

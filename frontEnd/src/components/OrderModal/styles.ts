@@ -78,7 +78,7 @@ export const OrderDetails = styled.div`
       }
 
       .quantity {
-        font-size: 12px;
+        font-size: 14px;
         color: #666;
         display: block;
         min-width: 20px;
@@ -106,5 +106,42 @@ export const OrderDetails = styled.div`
       align-items: center;
       justify-content: space-between;
       margin-top: 24px;
+
+      span {
+        font-weight: 500;
+        font-size: 14px;
+        opacity: 0.8;
+      }
     }
 `;
+
+export const Actions = styled.footer`
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .primary {
+    background: #333;
+    border-radius: 48px;
+    border: 0;
+    color: #fff;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .secondary {
+    padding: 12px 24px;
+    color: #d73035;
+    font-weight: bold;
+    border: 0;
+    background: transparent;
+    margin-top: 12px;
+  }
+`

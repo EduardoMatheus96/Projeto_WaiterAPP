@@ -1,0 +1,52 @@
+# version: '3.8'
+# services:
+#   api:
+#     build: .
+#     ports:
+#       - "3001:3001" # Mapeia a porta 3001 do contêiner para a porta 3001 do host
+#     environment:
+#       MONGO_URL: mongodb://mongo:27017/waiterapp # String de conexão para o MongoDB
+#     depends_on:
+#       - mongo # Garante que o MongoDB esteja rodando antes de iniciar a API
+
+#   mongo:
+#     image: mongo:6 # Usa a imagem oficial do MongoDB
+#     ports:
+#       - "27017:27017" # Mapeia a porta 27017 do contêiner para a porta 27017 do host
+#     volumes:
+#       - mongo-data:/data/db # Persiste os dados do MongoDB
+
+# volumes:
+#   mongo-data:
+
+version: '3.8'
+services:
+  api:
+    build: ./api
+    ports:
+      - "3001:3001"
+    environment:
+      MONGO_URL: mongodb://mongo:27017/waiterapp
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:6
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  frontend:
+    build:
+      context: ./frontEnd # Especifica o diretório do frontend
+      dockerfile: Dockerfile # Especifica o nome do Dockerfile (se necessário)
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+
+volumes:
+  mongo-data:
+
+
